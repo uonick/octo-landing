@@ -11,5 +11,12 @@
 </template>
 
 <script lang="ts" setup>
-const currentYear = new Date().getFullYear()
+defineOptions({
+  name: 'AppFooter'
+})
+
+import { getCurrentYear } from '@/shared/lib/current-year'
+
+const currentYear = getCurrentYear()
 </script>
+

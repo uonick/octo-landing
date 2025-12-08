@@ -35,7 +35,7 @@
             width="1200"
             height="691"
             class="rounded-2xl"
-            src="@/assets/screenshot.webp"
+            src="@/shared/assets/screenshot.webp"
           />
         </a>
       </div>
@@ -44,13 +44,10 @@
 </template>
 
 <script setup lang="ts">
-import { version } from '../../package.json'
 import { ArrowDownCircleIcon } from '@heroicons/vue/20/solid'
+import { getDownloadLinks, getVersion } from '@/shared/lib/download-links'
 
-const github = import.meta.env.VITE_GITHUB_DOWNLOAD_LINK
-const downloadLinks = {
-  mac: github.replaceAll('%version%', version).replace('%ext%', 'dmg'),
-  linux: github.replaceAll('%version%', version).replace('%ext%', 'deb'),
-  windows: github.replaceAll('%version%', version).replace('%ext%', 'exe')
-}
+const version = getVersion()
+const downloadLinks = getDownloadLinks()
 </script>
+
