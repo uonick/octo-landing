@@ -13,14 +13,7 @@
       <div class="relative mt-12 duration-1000 delay-500 opacity-1">
         <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800"
-            style="
-              background: radial-gradient(
-                157.73% 157.73% at 50% -29.9%,
-                rgba(203, 213, 225, 0.16) 0%,
-                rgba(203, 213, 225, 0) 100%
-              );
-            "
+            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
           >
             <div
               class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
@@ -47,14 +40,7 @@
             </p>
           </li>
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800"
-            style="
-              background: radial-gradient(
-                157.73% 157.73% at 50% -29.9%,
-                rgba(203, 213, 225, 0.16) 0%,
-                rgba(203, 213, 225, 0) 100%
-              );
-            "
+            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
           >
             <div
               class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
@@ -69,14 +55,7 @@
             </p>
           </li>
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800"
-            style="
-              background: radial-gradient(
-                157.73% 157.73% at 50% -29.9%,
-                rgba(203, 213, 225, 0.16) 0%,
-                rgba(203, 213, 225, 0) 100%
-              );
-            "
+            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
           >
             <div
               class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
@@ -90,14 +69,7 @@
             </p>
           </li>
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800"
-            style="
-              background: radial-gradient(
-                157.73% 157.73% at 50% -29.9%,
-                rgba(203, 213, 225, 0.16) 0%,
-                rgba(203, 213, 225, 0) 100%
-              );
-            "
+            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
           >
             <div
               class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
@@ -111,14 +83,7 @@
             </p>
           </li>
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800"
-            style="
-              background: radial-gradient(
-                157.73% 157.73% at 50% -29.9%,
-                rgba(203, 213, 225, 0.16) 0%,
-                rgba(203, 213, 225, 0) 100%
-              );
-            "
+            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
           >
             <div
               class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
@@ -145,14 +110,7 @@
             </p>
           </li>
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800"
-            style="
-              background: radial-gradient(
-                157.73% 157.73% at 50% -29.9%,
-                rgba(203, 213, 225, 0.16) 0%,
-                rgba(203, 213, 225, 0) 100%
-              );
-            "
+            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
           >
             <div
               class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"

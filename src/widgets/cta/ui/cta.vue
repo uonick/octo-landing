@@ -2,15 +2,7 @@
   <section>
     <div wrapperclassname="max-w-xs h-[13rem] top-12 inset-0" class="relative">
       <div
-        class="absolute m-auto blur-[160px] max-w-xs h-[13rem] top-12 inset-0"
-        style="
-          background: linear-gradient(
-            180deg,
-            #7c3aed 0%,
-            rgba(152, 103, 240, 0.984375) 0.01%,
-            rgba(237, 78, 80, 0.2) 100%
-          );
-        "
+        class="absolute m-auto blur-[160px] max-w-xs h-[13rem] top-12 inset-0 bg-[linear-gradient(180deg,#7c3aed_0%,rgba(152,103,240,0.984375)_0.01%,rgba(237,78,80,0.2)_100%)]"
       ></div>
       <div class="relative">
         <div class="custom-screen py-28 relative">
