@@ -22,6 +22,11 @@ function getVersion() {
   return version
 }
 
+function getMode() {
+  const mode = process.argv[3] || 'all'
+  return mode
+}
+
 function getReleaseDate() {
   const date = new Date()
   const day = String(date.getDate()).padStart(2, '0')
@@ -102,10 +107,16 @@ function updateVueFiles(version) {
 
 function main() {
   const version = getVersion()
+  const mode = getMode()
   const date = getReleaseDate()
 
-  writeVersionJson(version, date)
-  updateVueFiles(version)
+  if (mode === 'vue' || mode === 'all') {
+    updateVueFiles(version)
+  }
+
+  if (mode === 'json' || mode === 'all') {
+    writeVersionJson(version, date)
+  }
 }
 
 main()

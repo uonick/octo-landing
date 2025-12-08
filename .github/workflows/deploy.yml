@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'Application version'
+        description: "Application version"
         required: true
         type: string
 
@@ -21,16 +21,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '25'
+          node-version: "25"
 
       - name: Install Dependencies
         run: npm install
 
       - name: Build pages
         run: |
-          npm run build
           npm version ${{ github.event.inputs.version }} --no-git-tag-version
-          node version.js
+          node version.js ${{ github.event.inputs.version }} vue
+          npm run build-only
+          node version.js ${{ github.event.inputs.version }} json
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.7.3
