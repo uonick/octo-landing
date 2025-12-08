@@ -7,28 +7,28 @@
       <div class="relative">
         <div class="custom-screen py-28 relative">
           <div class="relative z-10 duration-1000 delay-300 opacity-1">
-            <div class="max-w-xl mx-auto text-center">
+            <div class="max-w-xl mx-auto text-center px-5 lg:px-0">
               <h2
-                class="text-neutral-50 text-3xl font-semibold  from-sky-200 to-violet-500 bg-gradient-to-br text-transparent bg-clip-text"
+                class="text-neutral-50 text-2xl font-semibold sm:text-3xl from-sky-200 to-violet-500 bg-gradient-to-br text-transparent bg-clip-text tracking-tight"
               >
                 Следи за финансами и временем в одном приложении
               </h2>
-              <p class="mt-5 text-neutral-300 px-5 lg:px-0">
+              <p class="mt-5 text-sm text-neutral-400">
                 Простой интерфейс, никаких оплат или сторонних сервисов – приложение создано для
                 удобства без лишних заморочек
               </p>
             </div>
             <div class="flex justify-center font-medium text-white py-5">
               <a
-                class="py-4 px-10 text-center rounded-full items-center bg-purple-600 hover:bg-purple-500 active:bg-purple-700 flex justify-between space-x-3 text-lg"
+                class="inline-flex items-center justify-center gap-3 px-8 py-3 text-base font-medium text-white bg-purple-600 rounded-md transition-colors hover:bg-purple-500 active:bg-purple-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
                 :href="downloadLinks.mac"
-                ><div>Скачать {{ version }} для macOS</div>
-                <ArrowDownCircleIcon class="h-7 w-7" />
+                ><span>Скачать {{ version }} для macOS</span>
+                <ArrowDownCircleIcon class="h-5 w-5" />
               </a>
             </div>
-            <div class="flex justify-center font-medium text-sm text-white">
-              а так же для&nbsp;<a :href="downloadLinks.windows" class="underline">Windows</a
-              >&nbsp;и&nbsp;<a :href="downloadLinks.linux" class="underline">Linux</a>
+            <div class="flex justify-center text-sm text-neutral-400">
+              а так же для&nbsp;<a :href="downloadLinks.windows" class="text-neutral-300 underline-offset-4 hover:text-neutral-50 hover:underline transition-colors">Windows</a
+              >&nbsp;и&nbsp;<a :href="downloadLinks.linux" class="text-neutral-300 underline-offset-4 hover:text-neutral-50 hover:underline transition-colors">Linux</a>
             </div>
           </div>
           <img

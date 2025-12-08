@@ -10,20 +10,20 @@
             <ul
               class="flex-1 justify-center items-center space-y-6 md:flex md:space-x-6 md:space-y-0"
             >
-              <li class="hover:text-neutral-50">
-                <a class="block" href="/#features">Возможности</a>
+              <li>
+                <a class="block text-neutral-400 transition-colors hover:text-neutral-50" href="/#features">Возможности</a>
               </li>
-              <li class="hover:text-neutral-50">
-                <a class="block" href="/#faqs">Вопросы и ответы</a>
+              <li>
+                <a class="block text-neutral-400 transition-colors hover:text-neutral-50" href="/#faqs">Вопросы и ответы</a>
               </li>
-              <li class="hover:text-neutral-50">
-                <a class="block" href="https://github.com/uonick/octo-workspace/releases">Релизы</a>
+              <li>
+                <a class="block text-neutral-400 transition-colors hover:text-neutral-50" href="https://github.com/uonick/octo-workspace/releases">Релизы</a>
               </li>
             </ul>
             <div
               class="gap-x-6 items-center justify-end mt-6 space-y-6 md:flex md:space-y-0 md:mt-0"
             >
-              <a class="block hover:text-neutral-50" href="https://github.com/uonick/octo-workspace"
+              <a class="block text-neutral-400 transition-colors hover:text-neutral-50" href="https://github.com/uonick/octo-workspace"
                 >GitHub</a
               >
             </div>

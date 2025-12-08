@@ -1,26 +1,26 @@
 <template>
   <div class="duration-1000 delay-300 opacity-1">
-    <div class="space-y-7 max-w-3xl mx-auto text-center">
+    <div class="space-y-7 max-w-3xl mx-auto text-center px-5 sm:px-0">
       <h1
-        class="text-4xl bg-clip-text text-transparent font-extrabold mx-auto sm:text-6xl from-slate-100 to-purple-300 bg-gradient-to-br"
+        class="text-3xl bg-clip-text text-transparent font-bold mx-auto sm:text-5xl from-slate-100 to-purple-300 bg-gradient-to-br tracking-tight"
       >
         Бесплатное приложение для работы на фрилансе
       </h1>
-      <p class="max-w-xl mx-auto text-neutral-300">
+      <p class="max-w-xl mx-auto text-sm text-neutral-400 px-5 sm:px-0">
         Контролируйте ваше время и проекты, храните заметки, выставляйте счета и акты, следите за
         оплатой офлайн
       </p>
       <div class="flex justify-center font-medium text-white">
         <a
-          class="py-4 px-10 text-center rounded-full items-center bg-purple-600 hover:bg-purple-500 active:bg-purple-700 flex justify-between space-x-3 text-lg"
+          class="inline-flex items-center justify-center gap-3 px-8 py-3 text-base font-medium text-white bg-purple-600 rounded-md transition-colors hover:bg-purple-500 active:bg-purple-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900"
           :href="downloadLinks.mac"
-          ><div>Скачать {{ version }} для macOS</div>
-          <ArrowDownCircleIcon class="h-7 w-7" />
+          ><span>Скачать {{ version }} для macOS</span>
+          <ArrowDownCircleIcon class="h-5 w-5" />
         </a>
       </div>
-      <div class="flex justify-center font-medium text-sm text-white">
-        а так же для&nbsp;<a :href="downloadLinks.windows" class="underline">Windows</a
-        >&nbsp;и&nbsp;<a :href="downloadLinks.linux" class="underline">Linux</a>
+      <div class="flex justify-center text-sm text-neutral-400">
+        а так же для&nbsp;<a :href="downloadLinks.windows" class="text-neutral-300 underline-offset-4 hover:text-neutral-50 hover:underline transition-colors">Windows</a
+        >&nbsp;и&nbsp;<a :href="downloadLinks.linux" class="text-neutral-300 underline-offset-4 hover:text-neutral-50 hover:underline transition-colors">Linux</a>
       </div>
     </div>
     <div class="relative mt-16 sm:mt-28 flex justify-center items-center">

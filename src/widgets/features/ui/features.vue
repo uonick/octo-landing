@@ -1,11 +1,11 @@
 <template>
   <section class="py-16 lg:py-24 w-full max-w-6xl mx-auto px-5 md:px-0">
-    <div id="features" class="px-5 text-neutral-300 xl:px-0">
-      <div class="max-w-xl mx-auto text-center duration-1000 delay-300 opacity-1">
-        <h2 class="text-neutral-50 text-3xl font-semibold sm:text-4xl">
+    <div id="features" class="text-neutral-300">
+      <div class="max-w-xl mx-auto text-center duration-1000 delay-300 opacity-1 px-5 md:px-0">
+        <h2 class="text-neutral-50 text-2xl font-semibold sm:text-3xl tracking-tight">
           Основные возможности приложения
         </h2>
-        <p class="mt-3">
+        <p class="mt-3 text-sm text-neutral-400">
           Наш простой и интуитивно понятный интерфейс обеспечивает мгновенный обзор текущего статуса
           работ по каждому клиенту
         </p>
@@ -13,10 +13,10 @@
       <div class="relative mt-12 duration-1000 delay-500 opacity-1">
         <ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
+            class="group space-y-4 p-6 rounded-lg border border-neutral-800 bg-neutral-950/50 transition-all duration-200 hover:border-neutral-700 hover:bg-neutral-900/50"
           >
             <div
-              class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
+              class="w-10 h-10 flex items-center justify-center text-neutral-400 transition-colors group-hover:text-neutral-50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                class="w-5 h-5"
               >
                 <path
                   stroke-linecap="round"
@@ -33,60 +33,60 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-lg text-neutral-50 font-semibold">Несколько клиентов</h3>
-            <p>
+            <h3 class="text-base font-semibold text-neutral-50 tracking-tight">Несколько клиентов</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">
               Простой, но информативный интерфейс приложения обеспечивает мгновенное понимание
               статуса работ и финансов по каждому клиенту
             </p>
           </li>
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
+            class="group space-y-4 p-6 rounded-lg border border-neutral-800 bg-neutral-950/50 transition-all duration-200 hover:border-neutral-700 hover:bg-neutral-900/50"
           >
             <div
-              class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
+              class="w-10 h-10 flex items-center justify-center text-neutral-400 transition-colors group-hover:text-neutral-50"
             >
-              <DocumentCheckIcon class="h-6 w-6" />
+              <DocumentCheckIcon class="h-5 w-5" />
             </div>
-            <h3 class="text-lg text-neutral-50 font-semibold">Счета и акты</h3>
-            <p>
+            <h3 class="text-base font-semibold text-neutral-50 tracking-tight">Счета и акты</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">
               Забудьте о поиске шаблонов счетов в интернете или оплате сторонних сервисов.
               Приложение предоставляет удобные инструменты для создания счетов и сэкономит ваше
               время
             </p>
           </li>
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
+            class="group space-y-4 p-6 rounded-lg border border-neutral-800 bg-neutral-950/50 transition-all duration-200 hover:border-neutral-700 hover:bg-neutral-900/50"
           >
             <div
-              class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
+              class="w-10 h-10 flex items-center justify-center text-neutral-400 transition-colors group-hover:text-neutral-50"
             >
-              <ClockIcon class="w-6 h-6" />
+              <ClockIcon class="w-5 h-5" />
             </div>
-            <h3 class="text-lg text-neutral-50 font-semibold">Время работы</h3>
-            <p>
+            <h3 class="text-base font-semibold text-neutral-50 tracking-tight">Время работы</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">
               Эффективно контролируйте время работы, привязывая его к конкретным проектам и клиентам
               с помощью встроенных функций. Управление временем стало более прозрачным и удобным
             </p>
           </li>
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
+            class="group space-y-4 p-6 rounded-lg border border-neutral-800 bg-neutral-950/50 transition-all duration-200 hover:border-neutral-700 hover:bg-neutral-900/50"
           >
             <div
-              class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
+              class="w-10 h-10 flex items-center justify-center text-neutral-400 transition-colors group-hover:text-neutral-50"
             >
-              <CircleStackIcon class="w-6 h-6" />
+              <CircleStackIcon class="w-5 h-5" />
             </div>
-            <h3 class="text-lg text-neutral-50 font-semibold">Локальная база данных</h3>
-            <p>
+            <h3 class="text-base font-semibold text-neutral-50 tracking-tight">Локальная база данных</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">
               Вся информация строго конфиденциальна и хранится исключительно на вашем устройстве.
               Никакие данные не передаются в сторонние источники. Ваши данные принадлежат только вам
             </p>
           </li>
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
+            class="group space-y-4 p-6 rounded-lg border border-neutral-800 bg-neutral-950/50 transition-all duration-200 hover:border-neutral-700 hover:bg-neutral-900/50"
           >
             <div
-              class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
+              class="w-10 h-10 flex items-center justify-center text-neutral-400 transition-colors group-hover:text-neutral-50"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                class="w-5 h-5"
               >
                 <path
                   stroke-linecap="round"
@@ -103,22 +103,22 @@
                 ></path>
               </svg>
             </div>
-            <h3 class="text-lg text-neutral-50 font-semibold">Автономность</h3>
-            <p>
+            <h3 class="text-base font-semibold text-neutral-50 tracking-tight">Автономность</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">
               Приложение разработано с учетом возможности работы в автономном режиме, независимо от
               подключения к интернету или облачным сервисам
             </p>
           </li>
           <li
-            class="space-y-3 p-4 rounded-xl border border-neutral-800 bg-[radial-gradient(157.73%_157.73%_at_50%_-29.9%,rgba(203,213,225,0.16)_0%,rgba(203,213,225,0)_100%)]"
+            class="group space-y-4 p-6 rounded-lg border border-neutral-800 bg-neutral-950/50 transition-all duration-200 hover:border-neutral-700 hover:bg-neutral-900/50"
           >
             <div
-              class="w-12 h-12 flex items-center justify-center bg-neutral-700 rounded-lg text-neutral-50"
+              class="w-10 h-10 flex items-center justify-center text-neutral-400 transition-colors group-hover:text-neutral-50"
             >
-              <BellAlertIcon class="h-6" />
+              <BellAlertIcon class="h-5 w-5" />
             </div>
-            <h3 class="text-lg text-neutral-50 font-semibold">Уведомления</h3>
-            <p>
+            <h3 class="text-base font-semibold text-neutral-50 tracking-tight">Уведомления</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">
               С приложением вы не упустите оплату счетов клиентами или важную задачу, благодаря
               уведомлениям. Своевременное информирование обеспечивает надежное управление финансами
               и задачами
