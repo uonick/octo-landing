@@ -9,10 +9,6 @@
 </template>
 
 <script lang="ts" setup>
-defineOptions({
-  name: 'AppFooter'
-})
-
 import { getCurrentYear } from '@/shared/lib/current-year'
 
 const currentYear = getCurrentYear()

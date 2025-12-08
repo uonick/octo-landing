@@ -14,11 +14,11 @@ defineOptions({
   name: 'HomePage'
 })
 
-import Header from '@/widgets/header/ui/header.vue'
-import Hero from '@/widgets/hero/ui/hero.vue'
-import Features from '@/widgets/features/ui/features.vue'
-import CTA from '@/widgets/cta/ui/cta.vue'
-import FAQ from '@/widgets/faq/ui/faq.vue'
-import Footer from '@/widgets/footer/ui/footer.vue'
+import Header from '@/widgets/header-section/ui/header-section.vue'
+import Hero from '@/widgets/hero-section/ui/hero-section.vue'
+import Features from '@/widgets/features-section/ui/features-section.vue'
+import CTA from '@/widgets/cta-section/ui/cta-section.vue'
+import FAQ from '@/widgets/faq-section/ui/faq-section.vue'
+import Footer from '@/widgets/footer-section/ui/footer-section.vue'
 </script>
 
