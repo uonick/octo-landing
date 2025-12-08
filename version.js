@@ -14,7 +14,7 @@ function getVersion() {
 
   if (!version) {
     console.error(
-      'Ошибка: версия не указана. Используйте VERSION=1.0.0 node version.js или node version.js 1.0.0'
+      'Error: version not specified. Use VERSION=1.0.0 node version.js or node version.js 1.0.0'
     )
     process.exit(1)
   }
@@ -51,7 +51,7 @@ function writeVersionJson(version, date) {
   const versionJson = createVersionJson(version, date)
 
   fs.writeFileSync(versionJsonPath, JSON.stringify(versionJson, null, 2) + '\n')
-  console.log(`✓ version.json создан: ${versionJsonPath}`)
+  console.log(`✓ version.json created: ${versionJsonPath}`)
 }
 
 function findVueFiles(dir, fileList = []) {
@@ -83,7 +83,7 @@ function replaceVersionInFile(filePath, version) {
 }
 
 function updateVueFiles(version) {
-  console.log(`Обновление версии в Vue файлах до ${version}...`)
+  console.log(`Updating version in Vue files to ${version}...`)
 
   const srcDir = path.join(__dirname, 'src')
   const vueFiles = findVueFiles(srcDir)
@@ -93,11 +93,11 @@ function updateVueFiles(version) {
     if (replaceVersionInFile(filePath, version)) {
       const relativePath = path.relative(__dirname, filePath)
       replacedCount++
-      console.log(`✓ ${relativePath} обновлен`)
+      console.log(`✓ ${relativePath} updated`)
     }
   })
 
-  console.log(`\nГотово! Обновлено файлов: ${replacedCount}`)
+  console.log(`\nDone! Updated files: ${replacedCount}`)
 }
 
 function main() {
