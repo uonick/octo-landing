@@ -30,11 +30,11 @@ jobs:
         run: |
           npm version ${{ github.event.inputs.version }} --no-git-tag-version
           node version.js ${{ github.event.inputs.version }} vue
-          npm run build-only
+          npm run build
           node version.js ${{ github.event.inputs.version }} json
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.7.3
         with:
           folder: dist
-          branch: gh-pages
+          branch: main
