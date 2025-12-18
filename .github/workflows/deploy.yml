@@ -4,6 +4,9 @@ permissions:
   contents: write
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       version:
@@ -16,25 +19,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "25"
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build pages
+      - name: Get version
+        id: version
         run: |
-          npm version ${{ github.event.inputs.version }} --no-git-tag-version
-          node version.js ${{ github.event.inputs.version }} vue
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build
+        run: |
+          node version.js ${{ steps.version.outputs.version }} vue
           npm run build
-          node version.js ${{ github.event.inputs.version }} json
+          node version.js ${{ steps.version.outputs.version }} json
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.7.3
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: dist
-          branch: main
+          publish_dir: ./dist
