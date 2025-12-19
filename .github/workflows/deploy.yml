@@ -41,8 +41,8 @@ jobs:
       - name: Build
         run: |
           node version.js ${{ steps.version.outputs.version }} vue
-          npm run build
           node version.js ${{ steps.version.outputs.version }} json
+          npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
