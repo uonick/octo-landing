@@ -38,10 +38,12 @@ jobs:
             echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
           fi
 
+      - name: Update version in package.json
+        run: npm pkg set version="${{ steps.version.outputs.version }}"
+
       - name: Build
         run: |
-          node version.js ${{ steps.version.outputs.version }} vue
-          node version.js ${{ steps.version.outputs.version }} json
+          node version.js ${{ steps.version.outputs.version }}
           npm run build
 
       - name: Deploy

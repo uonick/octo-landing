@@ -7,116 +7,56 @@ import { dirname } from 'path'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-function getVersion() {
-  const packageJsonPath = path.join(__dirname, 'package.json')
-  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'))
+const PACKAGE_JSON_PATH = path.join(__dirname, 'package.json')
+const DIST_DIR = path.join(__dirname, 'dist')
+const VERSION_JSON_PATH = path.join(DIST_DIR, 'version.json')
+
+const getVersion = () => {
+  const packageJson = JSON.parse(fs.readFileSync(PACKAGE_JSON_PATH, 'utf8'))
   const version = process.env.VERSION || process.argv[2] || packageJson.version
 
   if (!version) {
-    console.error(
-      'Error: version not specified. Use VERSION=1.0.0 node version.js or node version.js 1.0.0'
-    )
+    console.error('Error: version not specified. Use VERSION=1.0.0 node version.js or node version.js 1.0.0')
     process.exit(1)
   }
 
   return version
 }
 
-function getMode() {
-  const mode = process.argv[3] || 'all'
-  return mode
-}
-
-function getReleaseDate() {
-  const date = new Date()
+const formatDate = (date) => {
   const day = String(date.getDate()).padStart(2, '0')
   const month = String(date.getMonth() + 1).padStart(2, '0')
   const year = date.getFullYear()
   return `${day}.${month}.${year}`
 }
 
-function createVersionJson(version, date) {
-  return {
-    version,
-    date,
+const getReleaseDate = () => formatDate(new Date())
+
+const createVersionData = (version, date) => ({
+  version,
+  date
+})
+
+const ensureDistDir = () => {
+  if (!fs.existsSync(DIST_DIR)) {
+    fs.mkdirSync(DIST_DIR, { recursive: true })
   }
+  return DIST_DIR
 }
 
-function ensureDistDir() {
-  const distDir = path.join(__dirname, 'dist')
-  if (!fs.existsSync(distDir)) {
-    fs.mkdirSync(distDir, { recursive: true })
-  }
-  return distDir
+const writeVersionJson = (version, date) => {
+  ensureDistDir()
+  const versionData = createVersionData(version, date)
+  const content = JSON.stringify(versionData, null, 2) + '\n'
+
+  fs.writeFileSync(VERSION_JSON_PATH, content, 'utf8')
+  console.log(`✓ version.json created: ${VERSION_JSON_PATH}`)
 }
 
-function writeVersionJson(version, date) {
-  const distDir = ensureDistDir()
-  const versionJsonPath = path.join(distDir, 'version.json')
-  const versionJson = createVersionJson(version, date)
-
-  fs.writeFileSync(versionJsonPath, JSON.stringify(versionJson, null, 2) + '\n')
-  console.log(`✓ version.json created: ${versionJsonPath}`)
-}
-
-function findVueFiles(dir, fileList = []) {
-  const files = fs.readdirSync(dir)
-  files.forEach((file) => {
-    const filePath = path.join(dir, file)
-    const stat = fs.statSync(filePath)
-    if (stat.isDirectory()) {
-      findVueFiles(filePath, fileList)
-    } else if (file.endsWith('.vue')) {
-      fileList.push(filePath)
-    }
-  })
-  return fileList
-}
-
-function replaceVersionInFile(filePath, version) {
-  let content = fs.readFileSync(filePath, 'utf8')
-  const originalContent = content
-
-  content = content.replace(/\{\{\s*version\s*\}\}/g, version)
-
-  if (content !== originalContent) {
-    fs.writeFileSync(filePath, content, 'utf8')
-    return true
-  }
-
-  return false
-}
-
-function updateVueFiles(version) {
-  console.log(`Updating version in Vue files to ${version}...`)
-
-  const srcDir = path.join(__dirname, 'src')
-  const vueFiles = findVueFiles(srcDir)
-  let replacedCount = 0
-
-  vueFiles.forEach((filePath) => {
-    if (replaceVersionInFile(filePath, version)) {
-      const relativePath = path.relative(__dirname, filePath)
-      replacedCount++
-      console.log(`✓ ${relativePath} updated`)
-    }
-  })
-
-  console.log(`\nDone! Updated files: ${replacedCount}`)
-}
-
-function main() {
+const main = () => {
   const version = getVersion()
-  const mode = getMode()
   const date = getReleaseDate()
-
-  if (mode === 'vue' || mode === 'all') {
-    updateVueFiles(version)
-  }
-
-  if (mode === 'json' || mode === 'all') {
-    writeVersionJson(version, date)
-  }
+  writeVersionJson(version, date)
 }
 
 main()
