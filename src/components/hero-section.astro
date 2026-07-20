@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets'
+import screenshot from '@/assets/images/screenshot.png'
+import DownloadButtons from '@/components/download-buttons.astro'
+---
+
+<section class="relative pt-20 pb-4 sm:pt-28">
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[600px] bg-[radial-gradient(ellipse_at_top,_rgba(94,106,210,0.28),transparent_65%)] animate-glow"
+  >
+  </div>
+
+  <div class="animate-fade-up space-y-7 px-5 text-center sm:px-0">
+    <span
+      class="mx-auto inline-flex items-center gap-2 rounded-full border border-hairline bg-surface-1 px-3 py-1 text-xs font-medium text-ink-subtle"
+    >
+      <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
+      Открытый исходный код · офлайн-first
+    </span>
+
+    <h1
+      class="mx-auto max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-6xl"
+      style="letter-spacing: -1.5px;"
+    >
+      Фриланс без хаоса в&nbsp;<span class="text-gradient-brand">одном приложении</span>
+    </h1>
+
+    <p class="mx-auto max-w-xl px-5 text-base text-ink-subtle sm:px-0">
+      Контролируйте время и проекты, храните заметки, выставляйте счета и акты, следите за
+      оплатой: всё офлайн, бесплатно и без лишних заморочек.
+    </p>
+
+    <DownloadButtons />
+  </div>
+
+  <div class="relative mt-16 flex items-center justify-center overflow-visible sm:mt-24">
+    <div class="relative mx-auto w-full max-w-5xl px-5 animate-fade-up animation-delay-300">
+      <Image
+        alt="Скриншот приложения OctoWorkspace"
+        src={screenshot}
+        width={1200}
+        height={700}
+        quality={85}
+        format="webp"
+        loading="eager"
+        class="mx-auto block w-full border-0 bg-transparent shadow-none outline-none"
+      />
+    </div>
+  </div>
+</section>

@@ -43,8 +43,8 @@ jobs:
 
       - name: Build
         run: |
+          npm run build-only
           node version.js ${{ steps.version.outputs.version }}
-          npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

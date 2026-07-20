@@ -1,0 +1,43 @@
+---
+import { getDownloadLinks, getVersion } from '@/lib/download-links'
+
+const version = getVersion()
+const downloadLinks = getDownloadLinks()
+---
+
+<div class="flex flex-col items-center gap-4">
+  <div class="flex justify-center font-medium text-white">
+    <a
+      class="group inline-flex items-center justify-center gap-3 rounded-md bg-brand px-8 py-3 text-base font-medium text-white shadow-[0_0_0_1px_rgba(94,106,210,0.4),0_8px_30px_-8px_rgba(94,106,210,0.65)] transition-all hover:-translate-y-0.5 hover:bg-brand-hover active:translate-y-0 active:bg-brand-focus focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+      href={downloadLinks.mac}
+    >
+      <span>Скачать {version} для macOS</span>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        class="h-5 w-5 transition-transform group-hover:translate-y-0.5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"
+        ></path>
+      </svg>
+    </a>
+  </div>
+  <div class="flex justify-center text-sm text-ink-subtle">
+    а&nbsp;также&nbsp;для&nbsp;<a
+      href={downloadLinks.windows}
+      class="text-ink-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
+    >
+      Windows
+    </a>&nbsp;и&nbsp;<a
+      href={downloadLinks.linux}
+      class="text-ink-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
+    >
+      Linux
+    </a>
+  </div>
+</div>

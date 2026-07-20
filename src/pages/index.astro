@@ -1,0 +1,20 @@
+---
+import BaseLayout from '@/layouts/base-layout.astro'
+import SiteHeader from '@/components/site-header.astro'
+import HeroSection from '@/components/hero-section.astro'
+import FeaturesSection from '@/components/features-section.astro'
+import FaqSection from '@/components/faq-section.astro'
+import CtaSection from '@/components/cta-section.astro'
+import SiteFooter from '@/components/site-footer.astro'
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main class="space-y-16 lg:space-y-24">
+    <HeroSection />
+    <FeaturesSection />
+    <FaqSection />
+    <CtaSection />
+  </main>
+  <SiteFooter />
+</BaseLayout>
