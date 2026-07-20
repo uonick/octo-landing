@@ -27,6 +27,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Ensure GitHub Pages uses GitHub Actions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          repository="${{ github.repository }}"
+          default_branch="${{ github.event.repository.default_branch }}"
+          custom_domain="$(tr -d '[:space:]' < public/CNAME)"
+
+          if ! gh api "repos/${repository}/pages" --silent >/dev/null 2>&1; then
+            jq -n \
+              --arg branch "${default_branch}" \
+              --arg cname "${custom_domain}" \
+              '{build_type:"workflow",cname:$cname,source:{branch:$branch,path:"/"}}' \
+              | gh api -X POST "repos/${repository}/pages" --input -
+          else
+            gh api -X PUT "repos/${repository}/pages" \
+              -f build_type=workflow \
+              -f "cname=${custom_domain}"
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
