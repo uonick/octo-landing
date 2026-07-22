@@ -10,35 +10,33 @@ import DownloadButtons from '@/components/download-buttons.astro'
       class="absolute inset-0 top-12 m-auto h-52 max-w-xs bg-[linear-gradient(180deg,#5e6ad2_0%,rgba(94,106,210,0.7)_35%,rgba(130,143,255,0.15)_100%)] blur-[160px] animate-glow"
     >
     </div>
-    <div class="relative">
-      <div class="relative py-28">
-        <div class="relative z-10 animate-fade-up">
-          <div class="mx-auto max-w-xl px-5 text-center lg:px-0">
-            <h2 class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-              <span class="text-gradient-brand">
-                Следи за финансами и временем в одном приложении
-              </span>
-            </h2>
-            <p class="mt-5 text-sm text-ink-subtle">
-              Простой интерфейс, никаких оплат или сторонних сервисов. Приложение создано для
-              удобства без лишних заморочек
-            </p>
-          </div>
-          <div class="flex justify-center py-5 font-medium text-white">
-            <DownloadButtons />
-          </div>
+    <div class="relative flex min-h-80 items-center justify-center px-5 sm:min-h-96">
+      <div class="relative z-10 animate-fade-up">
+        <div class="mx-auto max-w-xl text-center lg:px-0">
+          <h2 class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+            <span class="text-gradient-brand">
+              Следи за финансами и временем в одном приложении
+            </span>
+          </h2>
+          <p class="mt-5 text-sm text-ink-subtle">
+            Простой интерфейс, никаких оплат или сторонних сервисов. Приложение создано для
+            удобства без лишних заморочек
+          </p>
         </div>
-        <Image
-          alt="Фоновый узор"
-          src={bg}
-          width={1600}
-          height={754}
-          quality={40}
-          format="webp"
-          loading="lazy"
-          class="pointer-events-none absolute inset-0 m-auto h-full w-full object-cover"
-        />
+        <div class="flex justify-center py-5 font-medium text-white">
+          <DownloadButtons />
+        </div>
       </div>
+      <Image
+        alt="Фоновый узор"
+        src={bg}
+        width={1600}
+        height={754}
+        quality={40}
+        format="webp"
+        loading="lazy"
+        class="pointer-events-none absolute inset-x-0 bottom-0 h-48 w-full object-cover object-bottom sm:h-56"
+      />
     </div>
   </div>
 </section>
