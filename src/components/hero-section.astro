@@ -38,8 +38,10 @@ import DownloadButtons from '@/components/download-buttons.astro'
       <Image
         alt="Скриншот приложения OctoWorkspace"
         src={screenshot}
+        layout="constrained"
         width={1200}
         height={700}
+        sizes="(min-width: 1024px) 1024px, calc(100vw - 2.5rem)"
         quality={85}
         format="webp"
         loading="eager"
