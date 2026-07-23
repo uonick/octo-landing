@@ -7,6 +7,13 @@
   --color-brand-hover: var(--brand-hover);
   --color-brand-focus: var(--brand-focus);
 
+  --color-accent-coral: #ff6b9d;
+  --color-accent-mint: #00d4aa;
+  --color-accent-sky: #4f9eff;
+  --color-accent-amber: #ffb800;
+  --color-accent-violet: #a855f7;
+  --color-accent-lime: #84cc16;
+
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
   --color-ink-subtle: var(--ink-subtle);
@@ -26,6 +33,9 @@
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-glow: glow 8s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out 2s infinite;
+  --animate-blob: blob 12s ease-in-out infinite;
 
   @keyframes fade-up {
     from {
@@ -47,6 +57,29 @@
       opacity: 0.9;
     }
   }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes blob {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(20px, -20px) scale(1.05);
+    }
+    66% {
+      transform: translate(-15px, 10px) scale(0.95);
+    }
+  }
 }
 
 :root {
@@ -55,11 +88,11 @@
   --ink-subtle: #52525b;
   --ink-tertiary: #71717a;
 
-  --canvas: #ffffff;
-  --surface-1: #fafafa;
-  --surface-2: #f4f4f5;
-  --surface-3: #ececee;
-  --surface-4: #e4e4e7;
+  --canvas: #faf8ff;
+  --surface-1: #ffffff;
+  --surface-2: #f4f0ff;
+  --surface-3: #ede8ff;
+  --surface-4: #e4ddff;
 
   --hairline: #e4e4e7;
   --hairline-strong: #d4d4d8;
@@ -67,6 +100,11 @@
 
   --brand-hover: #4f5ac4;
   --brand-focus: #434db8;
+
+  --blob-1: rgba(94, 106, 210, 0.35);
+  --blob-2: rgba(255, 107, 157, 0.3);
+  --blob-3: rgba(0, 212, 170, 0.28);
+  --blob-4: rgba(79, 158, 255, 0.25);
 
   color-scheme: light;
 }
@@ -78,18 +116,23 @@
     --ink-subtle: #8a8f98;
     --ink-tertiary: #62666d;
 
-    --canvas: #010102;
-    --surface-1: #0f1011;
-    --surface-2: #141516;
-    --surface-3: #18191a;
-    --surface-4: #191a1b;
+    --canvas: #0a0a12;
+    --surface-1: #12121c;
+    --surface-2: #1a1a28;
+    --surface-3: #222233;
+    --surface-4: #2a2a3d;
 
-    --hairline: #23252a;
-    --hairline-strong: #34343a;
-    --hairline-tertiary: #3e3e44;
+    --hairline: #2a2a3d;
+    --hairline-strong: #3a3a52;
+    --hairline-tertiary: #4a4a62;
 
     --brand-hover: #828fff;
     --brand-focus: #5e69d1;
+
+    --blob-1: rgba(94, 106, 210, 0.45);
+    --blob-2: rgba(255, 107, 157, 0.35);
+    --blob-3: rgba(0, 212, 170, 0.3);
+    --blob-4: rgba(79, 158, 255, 0.35);
 
     color-scheme: dark;
   }
@@ -125,7 +168,57 @@
   }
 
   .text-gradient-brand {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-ink via-ink to-brand;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand via-accent-violet to-accent-coral;
+  }
+
+  .text-gradient-vivid {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-sky via-brand to-accent-coral;
+  }
+
+  .mesh-bg {
+    background-image:
+      radial-gradient(ellipse 80% 60% at 10% 20%, var(--blob-1), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 90% 10%, var(--blob-2), transparent 55%),
+      radial-gradient(ellipse 60% 70% at 80% 80%, var(--blob-3), transparent 55%),
+      radial-gradient(ellipse 50% 50% at 20% 90%, var(--blob-4), transparent 50%);
+  }
+
+  .card-coral {
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.14) 0%, rgba(255, 107, 157, 0.06) 100%);
+  }
+
+  .card-mint {
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.14) 0%, rgba(0, 212, 170, 0.06) 100%);
+  }
+
+  .card-sky {
+    background: linear-gradient(135deg, rgba(79, 158, 255, 0.14) 0%, rgba(79, 158, 255, 0.06) 100%);
+  }
+
+  .card-amber {
+    background: linear-gradient(135deg, rgba(255, 184, 0, 0.16) 0%, rgba(255, 184, 0, 0.06) 100%);
+  }
+
+  .card-violet {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.14) 0%, rgba(168, 85, 247, 0.06) 100%);
+  }
+
+  .card-lime {
+    background: linear-gradient(135deg, rgba(132, 204, 22, 0.14) 0%, rgba(132, 204, 22, 0.06) 100%);
+  }
+
+  .card-brand {
+    background: linear-gradient(135deg, rgba(94, 106, 210, 0.16) 0%, rgba(94, 106, 210, 0.06) 100%);
+  }
+
+  .btn-gradient {
+    background: linear-gradient(135deg, #5e6ad2 0%, #a855f7 50%, #ff6b9d 100%);
+    background-size: 200% 200%;
+    transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-gradient:hover {
+    background-position: 100% 100%;
   }
 
   .animation-delay-150 {
@@ -134,5 +227,9 @@
 
   .animation-delay-300 {
     animation-delay: 300ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
   }
 }

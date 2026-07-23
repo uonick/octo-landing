@@ -1,30 +1,37 @@
 ---
+import { Image } from 'astro:assets'
+import appIcon from '@/assets/images/app-icon.png'
 ---
 
-<header class="sticky top-0 z-50 border-b border-hairline/60 bg-canvas/80 backdrop-blur-md">
+<header class="sticky top-0 z-50 bg-canvas/70 backdrop-blur-xl">
   <div class="container mx-auto max-w-6xl px-5 xl:px-0">
     <nav class="flex h-16 items-center justify-between">
-      <a href="/" class="flex items-center gap-2 text-ink">
-        <span
-          class="flex h-7 w-7 items-center justify-center rounded-md bg-brand text-sm font-semibold text-white"
-        >
-          O
-        </span>
-        <span class="text-sm font-semibold tracking-tight">OctoWorkspace</span>
+      <a href="/" class="flex items-center gap-2.5 text-ink">
+        <Image
+          src={appIcon}
+          alt="OctoWorkspace"
+          width={32}
+          height={32}
+          quality={90}
+          format="webp"
+          loading="eager"
+          class="h-8 w-8 rounded-xl"
+        />
+        <span class="text-sm font-bold tracking-tight">OctoWorkspace</span>
       </a>
 
       <ul
         class="hidden flex-1 items-center justify-center gap-8 text-sm font-medium text-ink-subtle md:flex"
       >
         <li>
-          <a class="transition-colors hover:text-ink" href="/#features">Возможности</a>
+          <a class="rounded-full px-3 py-1.5 transition-colors hover:bg-surface-2 hover:text-ink" href="/#features">Возможности</a>
         </li>
         <li>
-          <a class="transition-colors hover:text-ink" href="/#faqs">Вопросы и ответы</a>
+          <a class="rounded-full px-3 py-1.5 transition-colors hover:bg-surface-2 hover:text-ink" href="/#faqs">Вопросы и ответы</a>
         </li>
         <li>
           <a
-            class="transition-colors hover:text-ink"
+            class="rounded-full px-3 py-1.5 transition-colors hover:bg-surface-2 hover:text-ink"
             href="https://github.com/uonick/octo-workspace/releases"
           >
             Релизы
@@ -33,7 +40,7 @@
       </ul>
 
       <a
-        class="hidden items-center gap-2 rounded-md border border-hairline px-3 py-1.5 text-sm font-medium text-ink transition-colors hover:border-hairline-strong hover:bg-surface-2 md:flex"
+        class="hidden items-center gap-2 rounded-2xl bg-surface-2 px-4 py-2 text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:bg-surface-3 md:flex"
         href="https://github.com/uonick/octo-workspace"
         target="_blank"
         rel="noreferrer"

@@ -1,42 +1,37 @@
 ---
-import { Image } from 'astro:assets'
-import bg from '@/assets/images/bg.webp'
 import DownloadButtons from '@/components/download-buttons.astro'
 ---
 
-<section>
-  <div class="relative overflow-hidden">
+<section class="mx-auto max-w-6xl px-5 pb-16 md:px-0 lg:pb-24">
+  <div class="relative overflow-hidden rounded-[2rem] card-brand px-6 py-16 sm:px-12 sm:py-20">
     <div
-      class="absolute inset-0 top-12 m-auto h-52 max-w-xs bg-[linear-gradient(180deg,rgba(94,106,210,0.35)_0%,rgba(94,106,210,0.2)_35%,rgba(130,143,255,0.08)_100%)] dark:bg-[linear-gradient(180deg,#5e6ad2_0%,rgba(94,106,210,0.7)_35%,rgba(130,143,255,0.15)_100%)] blur-[160px] animate-glow"
+      class="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-accent-coral/25 blur-3xl animate-blob"
     >
     </div>
-    <div class="relative flex min-h-80 items-center justify-center px-5 sm:min-h-96">
-      <div class="relative z-10 animate-fade-up">
-        <div class="mx-auto max-w-xl text-center lg:px-0">
-          <h2 class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-            <span class="text-gradient-brand">
-              Следи за финансами и временем в одном приложении
-            </span>
-          </h2>
-          <p class="mt-5 text-sm text-ink-subtle">
-            Простой интерфейс, никаких оплат или сторонних сервисов. Приложение создано для
-            удобства без лишних заморочек
-          </p>
-        </div>
-        <div class="flex justify-center py-5 font-medium text-white">
-          <DownloadButtons />
-        </div>
+    <div
+      class="pointer-events-none absolute -bottom-16 -left-16 h-56 w-56 rounded-full bg-accent-mint/20 blur-3xl animate-blob animation-delay-300"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute top-1/2 left-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-violet/15 blur-3xl animate-glow"
+    >
+    </div>
+
+    <div class="relative z-10 animate-fade-up">
+      <div class="mx-auto max-w-xl text-center">
+        <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">
+          <span class="text-gradient-vivid">
+            Следи за финансами и временем в одном приложении
+          </span>
+        </h2>
+        <p class="mt-5 text-sm leading-relaxed text-ink-subtle">
+          Простой интерфейс, никаких оплат или сторонних сервисов. Приложение создано для
+          удобства без лишних заморочек
+        </p>
       </div>
-      <Image
-        alt="Фоновый узор"
-        src={bg}
-        width={1600}
-        height={754}
-        quality={40}
-        format="webp"
-        loading="lazy"
-        class="pointer-events-none absolute inset-x-0 bottom-0 hidden h-48 w-full object-cover object-bottom sm:h-56 dark:block"
-      />
+      <div class="mt-8 flex justify-center">
+        <DownloadButtons />
+      </div>
     </div>
   </div>
 </section>

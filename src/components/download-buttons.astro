@@ -1,17 +1,33 @@
 ---
 import { getDownloadLinks, getVersion } from '@/lib/download-links'
+import {
+  buildPrimaryButtonLabel,
+  DEFAULT_PLATFORM,
+  getOtherPlatforms,
+  getPlatformLabel,
+} from '@/lib/download-platform'
 
 const version = getVersion()
 const downloadLinks = getDownloadLinks()
+const defaultPlatform = DEFAULT_PLATFORM
+const defaultOtherPlatforms = getOtherPlatforms(defaultPlatform)
+const downloadConfig = JSON.stringify({ version, downloadLinks })
 ---
 
-<div class="flex flex-col items-center gap-4">
-  <div class="flex justify-center font-medium text-white">
+<div
+  class="flex flex-col items-center gap-4"
+  data-download-buttons
+  data-download-config={downloadConfig}
+>
+  <div class="flex justify-center">
     <a
-      class="group inline-flex items-center justify-center gap-3 rounded-md bg-brand px-8 py-3 text-base font-medium text-white shadow-[0_0_0_1px_rgba(94,106,210,0.4),0_8px_30px_-8px_rgba(94,106,210,0.65)] transition-all hover:-translate-y-0.5 hover:bg-brand-hover active:translate-y-0 active:bg-brand-focus focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
-      href={downloadLinks.mac}
+      data-download-primary
+      class="group inline-flex items-center justify-center gap-3 rounded-2xl btn-gradient px-8 py-3.5 text-base font-semibold text-white shadow-[0_8px_32px_-8px_rgba(94,106,210,0.65),0_4px_16px_-4px_rgba(255,107,157,0.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgba(94,106,210,0.75),0_6px_20px_-4px_rgba(255,107,157,0.4)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+      href={downloadLinks[defaultPlatform]}
     >
-      <span>Скачать {version} для macOS</span>
+      <span data-download-primary-label>
+        {buildPrimaryButtonLabel(version, defaultPlatform)}
+      </span>
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -27,17 +43,23 @@ const downloadLinks = getDownloadLinks()
       </svg>
     </a>
   </div>
-  <div class="flex justify-center text-sm text-ink-subtle">
-    а&nbsp;также&nbsp;для&nbsp;<a
-      href={downloadLinks.windows}
-      class="text-ink-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
-    >
-      Windows
-    </a>&nbsp;и&nbsp;<a
-      href={downloadLinks.linux}
-      class="text-ink-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
-    >
-      Linux
-    </a>
+  <div class="flex justify-center text-sm text-ink-subtle" data-download-secondary>
+    а&nbsp;также&nbsp;для&nbsp;
+    {
+      defaultOtherPlatforms.map((platform, index) => (
+        <>
+          {index > 0 && <>&nbsp;и&nbsp;</>}
+          <a
+            data-download-secondary-link={platform}
+            href={downloadLinks[platform]}
+            class="font-medium text-brand underline-offset-4 transition-colors hover:underline"
+          >
+            {getPlatformLabel(platform)}
+          </a>
+        </>
+      ))
+    }
   </div>
 </div>
+
+<script src="../scripts/init-download-buttons.ts"></script>

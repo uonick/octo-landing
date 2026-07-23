@@ -5,47 +5,60 @@ import lightScreenshot from '@/assets/images/light.png'
 import DownloadButtons from '@/components/download-buttons.astro'
 
 const screenshotClass =
-  'mx-auto block w-full border-0 bg-transparent shadow-none outline-none'
+  'mx-auto block h-auto w-full max-w-none border-0 bg-transparent object-contain shadow-none outline-none'
 ---
 
-<section class="relative pt-20 pb-4 sm:pt-28">
+<section class="relative overflow-x-clip pt-20 pb-4 sm:pt-28">
+  <div class="pointer-events-none absolute inset-0 -z-10 mesh-bg"></div>
+
   <div
-    class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-150 bg-[radial-gradient(ellipse_at_top,rgba(94,106,210,0.14),transparent_65%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(94,106,210,0.28),transparent_65%)] animate-glow"
+    class="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-accent-coral/20 blur-3xl animate-blob"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute -top-10 -right-16 h-64 w-64 rounded-full bg-accent-mint/20 blur-3xl animate-blob animation-delay-300"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute top-1/2 -left-10 h-56 w-56 rounded-full bg-accent-sky/15 blur-3xl animate-blob animation-delay-500"
   >
   </div>
 
-  <div class="animate-fade-up space-y-7 px-5 text-center sm:px-0">
-    <span
-      class="mx-auto inline-flex items-center gap-2 rounded-full border border-hairline bg-surface-1 px-3 py-1 text-xs font-medium text-ink-subtle"
-    >
-      <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
-      Офлайн десктоп приложение
-    </span>
+  <div class="container mx-auto max-w-6xl px-5 xl:px-0">
+    <div class="mx-auto max-w-2xl animate-fade-up space-y-7 text-center">
+      <span
+        class="mx-auto inline-flex items-center gap-2 rounded-full bg-accent-mint/15 px-4 py-1.5 text-xs font-semibold text-accent-mint"
+      >
+        <span class="h-2 w-2 rounded-full bg-accent-mint animate-glow"></span>
+        Офлайн десктоп приложение
+      </span>
 
-    <h1
-      class="mx-auto max-w-3xl text-4xl font-semibold tracking-tight text-ink sm:text-6xl"
-      style="letter-spacing: -1.5px;"
-    >
-      Фриланс без хаоса в&nbsp;<span class="text-gradient-brand">одном приложении</span>
-    </h1>
+      <h1
+        class="text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl"
+        style="letter-spacing: -1.5px;"
+      >
+        Фриланс без хаоса в&nbsp;<span class="text-gradient-brand">одном приложении</span>
+      </h1>
 
-    <p class="mx-auto max-w-xl px-5 text-base text-ink-subtle sm:px-0">
-      Контролируйте время и проекты, храните заметки, выставляйте счета и акты, следите за
-      оплатой: всё офлайн, бесплатно и без лишних заморочек.
-    </p>
+      <p class="mx-auto max-w-lg text-base leading-relaxed text-ink-subtle">
+        Контролируйте время и проекты, храните заметки, выставляйте счета и акты, следите за
+        оплатой: всё офлайн, бесплатно и без лишних заморочек.
+      </p>
 
-    <DownloadButtons />
+      <div class="flex justify-center">
+        <DownloadButtons />
+      </div>
+    </div>
   </div>
 
-  <div class="relative mt-16 flex items-center justify-center overflow-visible sm:mt-24">
-    <div class="relative mx-auto w-full max-w-5xl px-5 animate-fade-up animation-delay-300">
+  <div class="relative mt-16 w-full px-5 sm:mt-20 sm:px-8">
+    <div class="mx-auto w-full max-w-6xl animate-fade-up animation-delay-300">
       <Image
         alt="Скриншот приложения OctoWorkspace в светлой теме"
         src={lightScreenshot}
-        layout="constrained"
-        width={1200}
-        height={700}
-        sizes="(min-width: 1024px) 1024px, calc(100vw - 2.5rem)"
+        width={lightScreenshot.width}
+        height={lightScreenshot.height}
+        sizes="(min-width: 1152px) 1152px, calc(100vw - 2.5rem)"
         quality={85}
         format="webp"
         loading="eager"
@@ -54,10 +67,9 @@ const screenshotClass =
       <Image
         alt="Скриншот приложения OctoWorkspace в тёмной теме"
         src={darkScreenshot}
-        layout="constrained"
-        width={1200}
-        height={700}
-        sizes="(min-width: 1024px) 1024px, calc(100vw - 2.5rem)"
+        width={darkScreenshot.width}
+        height={darkScreenshot.height}
+        sizes="(min-width: 1152px) 1152px, calc(100vw - 2.5rem)"
         quality={85}
         format="webp"
         loading="eager"
