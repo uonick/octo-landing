@@ -7,7 +7,7 @@ import DownloadButtons from '@/components/download-buttons.astro'
 <section>
   <div class="relative overflow-hidden">
     <div
-      class="absolute inset-0 top-12 m-auto h-52 max-w-xs bg-[linear-gradient(180deg,#5e6ad2_0%,rgba(94,106,210,0.7)_35%,rgba(130,143,255,0.15)_100%)] blur-[160px] animate-glow"
+      class="absolute inset-0 top-12 m-auto h-52 max-w-xs bg-[linear-gradient(180deg,rgba(94,106,210,0.35)_0%,rgba(94,106,210,0.2)_35%,rgba(130,143,255,0.08)_100%)] dark:bg-[linear-gradient(180deg,#5e6ad2_0%,rgba(94,106,210,0.7)_35%,rgba(130,143,255,0.15)_100%)] blur-[160px] animate-glow"
     >
     </div>
     <div class="relative flex min-h-80 items-center justify-center px-5 sm:min-h-96">
@@ -35,7 +35,7 @@ import DownloadButtons from '@/components/download-buttons.astro'
         quality={40}
         format="webp"
         loading="lazy"
-        class="pointer-events-none absolute inset-x-0 bottom-0 h-48 w-full object-cover object-bottom sm:h-56"
+        class="pointer-events-none absolute inset-x-0 bottom-0 hidden h-48 w-full object-cover object-bottom sm:h-56 dark:block"
       />
     </div>
   </div>

@@ -1,12 +1,16 @@
 ---
 import { Image } from 'astro:assets'
-import screenshot from '@/assets/images/screenshot.png'
+import darkScreenshot from '@/assets/images/dark.png'
+import lightScreenshot from '@/assets/images/light.png'
 import DownloadButtons from '@/components/download-buttons.astro'
+
+const screenshotClass =
+  'mx-auto block w-full border-0 bg-transparent shadow-none outline-none'
 ---
 
 <section class="relative pt-20 pb-4 sm:pt-28">
   <div
-    class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-150 bg-[radial-gradient(ellipse_at_top,rgba(94,106,210,0.28),transparent_65%)] animate-glow"
+    class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-150 bg-[radial-gradient(ellipse_at_top,rgba(94,106,210,0.14),transparent_65%)] dark:bg-[radial-gradient(ellipse_at_top,rgba(94,106,210,0.28),transparent_65%)] animate-glow"
   >
   </div>
 
@@ -36,8 +40,8 @@ import DownloadButtons from '@/components/download-buttons.astro'
   <div class="relative mt-16 flex items-center justify-center overflow-visible sm:mt-24">
     <div class="relative mx-auto w-full max-w-5xl px-5 animate-fade-up animation-delay-300">
       <Image
-        alt="Скриншот приложения OctoWorkspace"
-        src={screenshot}
+        alt="Скриншот приложения OctoWorkspace в светлой теме"
+        src={lightScreenshot}
         layout="constrained"
         width={1200}
         height={700}
@@ -45,7 +49,19 @@ import DownloadButtons from '@/components/download-buttons.astro'
         quality={85}
         format="webp"
         loading="eager"
-        class="mx-auto block w-full border-0 bg-transparent shadow-none outline-none"
+        class:list={[screenshotClass, 'dark:hidden']}
+      />
+      <Image
+        alt="Скриншот приложения OctoWorkspace в тёмной теме"
+        src={darkScreenshot}
+        layout="constrained"
+        width={1200}
+        height={700}
+        sizes="(min-width: 1024px) 1024px, calc(100vw - 2.5rem)"
+        quality={85}
+        format="webp"
+        loading="eager"
+        class:list={[screenshotClass, 'hidden dark:block']}
       />
     </div>
   </div>

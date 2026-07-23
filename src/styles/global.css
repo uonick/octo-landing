@@ -1,26 +1,26 @@
 @import 'tailwindcss';
 
-@theme {
+@theme inline {
   --font-sans: 'Inter', 'SF Pro Display', ui-sans-serif, system-ui, sans-serif;
 
   --color-brand: #5e6ad2;
-  --color-brand-hover: #828fff;
-  --color-brand-focus: #5e69d1;
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-focus: var(--brand-focus);
 
-  --color-ink: #f7f8f8;
-  --color-ink-muted: #d0d6e0;
-  --color-ink-subtle: #8a8f98;
-  --color-ink-tertiary: #62666d;
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-ink-tertiary: var(--ink-tertiary);
 
-  --color-canvas: #010102;
-  --color-surface-1: #0f1011;
-  --color-surface-2: #141516;
-  --color-surface-3: #18191a;
-  --color-surface-4: #191a1b;
+  --color-canvas: var(--canvas);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-surface-4: var(--surface-4);
 
-  --color-hairline: #23252a;
-  --color-hairline-strong: #34343a;
-  --color-hairline-tertiary: #3e3e44;
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-hairline-tertiary: var(--hairline-tertiary);
 
   --color-success: #27a644;
 
@@ -49,10 +49,55 @@
   }
 }
 
+:root {
+  --ink: #18181b;
+  --ink-muted: #3f3f46;
+  --ink-subtle: #52525b;
+  --ink-tertiary: #71717a;
+
+  --canvas: #ffffff;
+  --surface-1: #fafafa;
+  --surface-2: #f4f4f5;
+  --surface-3: #ececee;
+  --surface-4: #e4e4e7;
+
+  --hairline: #e4e4e7;
+  --hairline-strong: #d4d4d8;
+  --hairline-tertiary: #a1a1aa;
+
+  --brand-hover: #4f5ac4;
+  --brand-focus: #434db8;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #f7f8f8;
+    --ink-muted: #d0d6e0;
+    --ink-subtle: #8a8f98;
+    --ink-tertiary: #62666d;
+
+    --canvas: #010102;
+    --surface-1: #0f1011;
+    --surface-2: #141516;
+    --surface-3: #18191a;
+    --surface-4: #191a1b;
+
+    --hairline: #23252a;
+    --hairline-strong: #34343a;
+    --hairline-tertiary: #3e3e44;
+
+    --brand-hover: #828fff;
+    --brand-focus: #5e69d1;
+
+    color-scheme: dark;
+  }
+}
+
 @layer base {
   html {
-    background-color: var(--color-canvas);
-    color-scheme: dark;
+    background-color: var(--canvas);
   }
 
   body {
@@ -62,7 +107,7 @@
 
   ::selection {
     background-color: var(--color-brand);
-    color: var(--color-on-primary, #fff);
+    color: #fff;
   }
 }
 
