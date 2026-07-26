@@ -1,0 +1,141 @@
+---
+import BaseLayout from '@/layouts/base-layout.astro'
+import SiteHeader from '@/components/site-header.astro'
+import SiteFooter from '@/components/site-footer.astro'
+import { getCurrentYear } from '@/lib/current-year'
+
+const currentYear = getCurrentYear()
+const lastUpdated = '26.07.2026'
+---
+
+<BaseLayout
+  title="Политика конфиденциальности — OctoWorkspace"
+  description="Как OctoWorkspace обрабатывает данные: локальное хранение, сеть, обновления и отсутствие сбора персональных данных."
+>
+  <SiteHeader />
+  <main class="mx-auto max-w-3xl px-5 py-16 lg:py-24 md:px-0">
+    <article class="space-y-10 text-sm leading-relaxed text-ink-subtle">
+      <header class="space-y-3">
+        <p class="text-xs font-semibold uppercase tracking-wide text-brand">Документы</p>
+        <h1 class="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+          Политика конфиденциальности
+        </h1>
+        <p class="text-ink-subtle">
+          Приложение OctoWorkspace для macOS, Windows и Linux. Последнее обновление: {lastUpdated}.
+        </p>
+      </header>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink">1. Кто мы</h2>
+        <p>
+          OctoWorkspace — настольное приложение для фрилансеров: клиенты, проекты, время работы,
+          счета и акты. Сайт приложения: &nbsp;
+          <a href="https://octows.ru" class="font-medium text-brand underline-offset-4 hover:underline"
+            >octows.ru</a
+          >, вопросы: &nbsp;
+          <a href="https://github.com/uonick/octo-workspace/issues" class="font-medium text-brand underline-offset-4 hover:underline"
+            >GitHub Issues</a
+          >.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink">2. Главный принцип</h2>
+        <p>
+          Приложение не собирает и не передает ваши рабочие данные на серверы разработчика. Вся
+          информация, которую вы вводите, хранится только на вашем устройстве в локальной базе
+          данных. Облачная синхронизация и аккаунты в приложении не предусмотрены.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink">3. Что хранится на устройстве</h2>
+        <p>Локально на вашем компьютере могут сохраняться:</p>
+        <ul class="list-disc space-y-2 pl-5">
+          <li>данные клиентов и проектов;</li>
+          <li>задачи, заметки и записи о времене работы;</li>
+          <li>счета, акты и связанные документы;</li>
+          <li>
+            данные профиля для документов (название компании, ИНН, банковские реквизиты и другие
+            поля, которые вы заполняете);
+          </li>
+          <li>настройки приложения и пути к файлам баз данных и резервных копий;</li>
+          <li>локальные технические журналы ошибок (только в релизных сборках).</li>
+        </ul>
+        <p>
+          Вы самостоятельно выбираете папки для баз данных, резервных копий и экспорта документов.
+          Удаление приложения или файлов базы данных удаляет соответствующие данные с устройства.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink">4. Сеть и интернет</h2>
+        <p>Приложение работает без постоянного подключения к интернету. Сеть используется только в следующих случаях:</p>
+        <ul class="list-disc space-y-2 pl-5">
+          <li>
+            <strong>Проверка обновлений</strong> — при вашем действии в окне «О программе» приложение
+            запрашивает публичный файл <code class="rounded bg-surface-2 px-1.5 py-0.5 text-ink">version.json</code>
+            на <a href="https://octows.ru" class="font-medium text-brand underline-offset-4 hover:underline"
+              >octows.ru</a
+            >. В запросе не передаются данные клиентов, профиля или содержимое базы. Ответ содержит
+            только номер версии и дату релиза.
+          </li>
+          <li>
+            <strong>Внешние ссылки</strong> — при нажатии на ссылку (сайт, GitHub, страница
+            поддержки, донат) открывается браузер или системное приложение. Переход выполняется
+            только по вашему действию.
+          </li>
+        </ul>
+        <p>
+          Версия из Mac App Store обновляется через App Store. Проверка обновлений на сайте
+          разработчика не заменяет обновления из App Store.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink">5. Что мы не используем</h2>
+        <ul class="list-disc space-y-2 pl-5">
+          <li>рекламные и аналитические SDK;</li>
+          <li>облачные сервисы для хранения ваших рабочих данных;</li>
+          <li>отслеживание поведения внутри приложения;</li>
+          <li>продажу или передачу пользовательских данных третьим сторонам.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink">6. Уведомления</h2>
+        <p>
+          Локальные системные уведомления (например, о неоплаченных счетах или задачах) формируются
+          на устройстве из ваших данных. Содержимое уведомлений не отправляется разработчику.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink">7. Сайт octows.ru</h2>
+        <p>
+          Эта политика описывает настольное приложение OctoWorkspace. Сайт &nbsp;
+          <a href="https://octows.ru" class="font-medium text-brand underline-offset-4 hover:underline"
+            >octows.ru</a
+          >
+          — отдельная веб-страница; на ней могут действовать собственные правила (например,
+          аналитика посещений сайта). Они не применяются к работе приложения на вашем компьютере.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink">8. Изменения</h2>
+        <p>
+          При изменении практик обработки данных мы обновим эту страницу и дату в начале документа.
+          Актуальная версия всегда доступна по адресу &nbsp;
+          <a
+            href="https://octows.ru/privacy"
+            class="font-medium text-brand underline-offset-4 hover:underline"
+            >octows.ru/privacy</a
+          >.
+        </p>
+      </section>
+
+    </article>
+  </main>
+  <SiteFooter />
+</BaseLayout>
