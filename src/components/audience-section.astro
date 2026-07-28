@@ -1,0 +1,110 @@
+---
+type AudienceRole = {
+  label: string
+  cardClass: string
+  iconClass: string
+}
+
+const roles: AudienceRole[] = [
+  {
+    label: 'Графические и веб-дизайнеры',
+    cardClass: 'card-coral',
+    iconClass: 'bg-accent-coral/20 text-accent-coral',
+  },
+  {
+    label: 'UX/UI-специалисты',
+    cardClass: 'card-violet',
+    iconClass: 'bg-accent-violet/20 text-accent-violet',
+  },
+  {
+    label: 'Разработчики на фрилансе',
+    cardClass: 'card-sky',
+    iconClass: 'bg-accent-sky/20 text-accent-sky',
+  },
+  {
+    label: 'Копирайтеры и контент-мейкеры',
+    cardClass: 'card-amber',
+    iconClass: 'bg-accent-amber/20 text-accent-amber',
+  },
+  {
+    label: 'Маркетологи и SMM',
+    cardClass: 'card-mint',
+    iconClass: 'bg-accent-mint/20 text-accent-mint',
+  },
+  {
+    label: 'Небольшие студии 2–5 человек',
+    cardClass: 'card-lime',
+    iconClass: 'bg-accent-lime/20 text-accent-lime',
+  },
+]
+---
+
+<section id="audience" class="mx-auto max-w-6xl px-5 py-16 md:px-0 lg:py-24">
+  <div
+    class="relative overflow-hidden rounded-4xl border border-hairline bg-surface-1/80 px-6 py-12 backdrop-blur-sm sm:px-10 sm:py-14 lg:px-14 lg:py-16"
+  >
+    <div
+      class="pointer-events-none absolute -top-24 -right-16 h-56 w-56 rounded-full bg-accent-violet/15 blur-3xl"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute -bottom-20 -left-12 h-48 w-48 rounded-full bg-accent-mint/12 blur-3xl"
+    >
+    </div>
+
+    <div class="relative grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16">
+      <div class="animate-fade-up max-w-md space-y-5">
+        <span
+          class="inline-flex items-center rounded-full bg-brand/15 px-4 py-1.5 text-xs font-semibold text-brand"
+        >
+          Для кого
+        </span>
+        <h2 class="text-2xl font-bold tracking-tight text-ink sm:text-3xl lg:text-[2rem] lg:leading-tight">
+          Для тех, кто работает с&nbsp;клиентами напрямую
+        </h2>
+        <p class="text-sm leading-relaxed text-ink-subtle sm:text-base">
+          OctoWorkspace — для фрилансеров и небольших студий. Если вы ведёте проекты, выставляете
+          счета и согласуете работу по этапам — это про вас.
+        </p>
+      </div>
+
+      <ul class="grid gap-3 sm:grid-cols-2 sm:gap-4">
+        {
+          roles.map((role, index) => (
+            <li
+              class:list={[
+                'animate-fade-up group flex items-center gap-3 rounded-2xl border border-hairline/80 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-hairline-strong hover:shadow-[0_16px_40px_-24px_rgba(94,106,210,0.45)]',
+                role.cardClass,
+              ]}
+              style={`animation-delay:${index * 70}ms`}
+            >
+              <span
+                class:list={[
+                  'flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition-transform group-hover:scale-105',
+                  role.iconClass,
+                ]}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </span>
+              <span class="text-sm font-semibold leading-snug tracking-tight text-ink">
+                {role.label}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
