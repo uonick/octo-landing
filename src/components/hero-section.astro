@@ -1,7 +1,5 @@
 ---
 import { Image } from 'astro:assets'
-import overviewDark from '@/assets/images/dark.png'
-import overviewLight from '@/assets/images/light.png'
 import clientDark from '@/assets/images/client-dark.png'
 import clientLight from '@/assets/images/client-light.png'
 import projectsDark from '@/assets/images/projects-dark.png'
@@ -22,14 +20,6 @@ type Preview = {
 }
 
 const previews: Preview[] = [
-  {
-    id: 'overview',
-    label: 'Обзор',
-    light: overviewLight,
-    dark: overviewDark,
-    altLight: 'Обзор клиента в OctoWorkspace — светлая тема',
-    altDark: 'Обзор клиента в OctoWorkspace — тёмная тема',
-  },
   {
     id: 'clients',
     label: 'Клиенты',
