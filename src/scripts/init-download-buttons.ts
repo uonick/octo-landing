@@ -1,14 +1,14 @@
+import type { DownloadLinks } from '../lib/download-links'
 import {
   buildPrimaryButtonLabel,
   detectPlatform,
-  getOtherPlatforms,
-  getPlatformLabel,
+  getSecondaryDownloadLinks,
   type Platform,
 } from '../lib/download-platform'
 
 type DownloadConfig = {
   version: string
-  downloadLinks: Record<Platform, string>
+  downloadLinks: DownloadLinks
 }
 
 const readDownloadConfig = (root: Element): DownloadConfig | null => {
@@ -18,6 +18,35 @@ const readDownloadConfig = (root: Element): DownloadConfig | null => {
   }
 
   return JSON.parse(rawConfig) as DownloadConfig
+}
+
+const syncSecondaryLinks = (
+  root: Element,
+  platform: Platform,
+  downloadLinks: DownloadLinks,
+): void => {
+  const secondaryLinks = getSecondaryDownloadLinks(platform, downloadLinks)
+  const secondaryRoot = root.querySelector('[data-download-secondary]')
+  if (!(secondaryRoot instanceof HTMLElement)) {
+    return
+  }
+
+  const parts: string[] = ['а&nbsp;также&nbsp;']
+
+  secondaryLinks.forEach((link, index) => {
+    if (index > 0) {
+      parts.push(index === secondaryLinks.length - 1 ? '&nbsp;и&nbsp;' : ',&nbsp;')
+    }
+
+    const externalAttributes =
+      link.key === 'appStore' ? ' target="_blank" rel="noreferrer"' : ''
+
+    parts.push(
+      `<a data-download-secondary-link="${link.key}" href="${link.href}" class="font-medium text-brand underline-offset-4 transition-colors hover:underline"${externalAttributes}>${link.label}</a>`,
+    )
+  })
+
+  secondaryRoot.innerHTML = parts.join('')
 }
 
 export const initDownloadButtons = (): void => {
@@ -38,19 +67,7 @@ export const initDownloadButtons = (): void => {
     primaryLink.href = config.downloadLinks[platform]
     primaryLabel.textContent = buildPrimaryButtonLabel(config.version, platform)
 
-    const otherPlatforms = getOtherPlatforms(platform)
-    const secondaryLinks = root.querySelectorAll('[data-download-secondary-link]')
-
-    otherPlatforms.forEach((otherPlatform, index) => {
-      const link = secondaryLinks[index]
-      if (!(link instanceof HTMLAnchorElement)) {
-        return
-      }
-
-      link.href = config.downloadLinks[otherPlatform]
-      link.dataset.downloadSecondaryLink = otherPlatform
-      link.textContent = getPlatformLabel(otherPlatform)
-    })
+    syncSecondaryLinks(root, platform, config.downloadLinks)
   })
 }
 

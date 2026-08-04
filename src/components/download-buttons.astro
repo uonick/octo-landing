@@ -3,14 +3,13 @@ import { getDownloadLinks, getVersion } from '@/lib/download-links'
 import {
   buildPrimaryButtonLabel,
   DEFAULT_PLATFORM,
-  getOtherPlatforms,
-  getPlatformLabel,
+  getSecondaryDownloadLinks,
 } from '@/lib/download-platform'
 
 const version = getVersion()
 const downloadLinks = getDownloadLinks()
 const defaultPlatform = DEFAULT_PLATFORM
-const defaultOtherPlatforms = getOtherPlatforms(defaultPlatform)
+const defaultSecondaryLinks = getSecondaryDownloadLinks(defaultPlatform, downloadLinks)
 const downloadConfig = JSON.stringify({ version, downloadLinks })
 ---
 
@@ -44,17 +43,18 @@ const downloadConfig = JSON.stringify({ version, downloadLinks })
     </a>
   </div>
   <div class="flex justify-center text-sm text-ink-subtle" data-download-secondary>
-    а&nbsp;также&nbsp;для&nbsp;
+    а&nbsp;также&nbsp;
     {
-      defaultOtherPlatforms.map((platform, index) => (
+      defaultSecondaryLinks.map((link, index) => (
         <>
-          {index > 0 && <>&nbsp;и&nbsp;</>}
+          {index > 0 && (index === defaultSecondaryLinks.length - 1 ? <>&nbsp;и&nbsp;</> : <>,&nbsp;</>)}
           <a
-            data-download-secondary-link={platform}
-            href={downloadLinks[platform]}
+            data-download-secondary-link={link.key}
+            href={link.href}
             class="font-medium text-brand underline-offset-4 transition-colors hover:underline"
+            {...(link.key === 'appStore' ? { target: '_blank', rel: 'noreferrer' } : {})}
           >
-            {getPlatformLabel(platform)}
+            {link.label}
           </a>
         </>
       ))
