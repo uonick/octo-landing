@@ -2,10 +2,14 @@
 import { Image } from 'astro:assets'
 import clientDark from '@/assets/images/client-dark.png'
 import clientLight from '@/assets/images/client-light.png'
+import discoverDark from '@/assets/images/discover-dark.png'
+import discoverLight from '@/assets/images/discover-light.png'
 import projectsDark from '@/assets/images/projects-dark.png'
 import projectsLight from '@/assets/images/projects-light.png'
-import notesDark from '@/assets/images/notes-dark.png'
-import notesLight from '@/assets/images/notes-light.png'
+import tasksDark from '@/assets/images/tasks-dark.png'
+import tasksLight from '@/assets/images/tasks-light.png'
+import plannerDark from '@/assets/images/planner-dark.png'
+import plannerLight from '@/assets/images/planner-light.png'
 import invoiceDark from '@/assets/images/invoice-dark.png'
 import invoiceLight from '@/assets/images/invoice-light.png'
 import DownloadButtons from '@/components/download-buttons.astro'
@@ -20,6 +24,14 @@ type Preview = {
 }
 
 const previews: Preview[] = [
+  {
+    id: 'discover',
+    label: 'Обзор',
+    light: discoverLight,
+    dark: discoverDark,
+    altLight: 'Обзор в OctoWorkspace — светлая тема',
+    altDark: 'Обзор в OctoWorkspace — тёмная тема',
+  },
   {
     id: 'clients',
     label: 'Клиенты',
@@ -37,12 +49,20 @@ const previews: Preview[] = [
     altDark: 'Список проектов в OctoWorkspace — тёмная тема',
   },
   {
-    id: 'notes',
+    id: 'tasks',
     label: 'Дела',
-    light: notesLight,
-    dark: notesDark,
+    light: tasksLight,
+    dark: tasksDark,
     altLight: 'Доска дел в OctoWorkspace — светлая тема',
     altDark: 'Доска дел в OctoWorkspace — тёмная тема',
+  },
+  {
+    id: 'planner',
+    label: 'Планер',
+    light: plannerLight,
+    dark: plannerDark,
+    altLight: 'Планирование проектов в OctoWorkspace — светлая тема',
+    altDark: 'Планирование проектов в OctoWorkspace — тёмная тема',
   },
   {
     id: 'invoices',
