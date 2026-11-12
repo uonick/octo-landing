@@ -1,65 +1,77 @@
 ---
+import GithubIcon from '@/components/github-icon.astro'
+import PlatformIcon from '@/components/platform-icon.astro'
 import { getDownloadLinks, getVersion } from '@/lib/download-links'
 import {
   buildPrimaryButtonLabel,
   DEFAULT_PLATFORM,
   getSecondaryDownloadLinks,
+  PLATFORMS,
 } from '@/lib/download-platform'
+
+type Props = {
+  class?: string
+}
+
+const { class: className } = Astro.props
 
 const version = getVersion()
 const downloadLinks = getDownloadLinks()
-const defaultPlatform = DEFAULT_PLATFORM
-const defaultSecondaryLinks = getSecondaryDownloadLinks(defaultPlatform, downloadLinks)
-const downloadConfig = JSON.stringify({ version, downloadLinks })
 ---
 
-<div
-  class="flex flex-col items-center gap-4"
-  data-download-buttons
-  data-download-config={downloadConfig}
->
-  <div class="flex justify-center">
-    <a
-      data-download-primary
-      class="group inline-flex items-center justify-center gap-3 rounded-2xl btn-gradient px-8 py-3.5 text-base font-semibold text-white shadow-[0_8px_32px_-8px_rgba(94,106,210,0.65),0_4px_16px_-4px_rgba(255,107,157,0.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-8px_rgba(94,106,210,0.75),0_6px_20px_-4px_rgba(255,107,157,0.4)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
-      href={downloadLinks[defaultPlatform]}
-    >
-      <span data-download-primary-label>
-        {buildPrimaryButtonLabel(version, defaultPlatform)}
-      </span>
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.5"
-        class="h-5 w-5 transition-transform group-hover:translate-y-0.5"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"
-        ></path>
-      </svg>
-    </a>
-  </div>
-  <div class="flex justify-center text-sm text-ink-subtle" data-download-secondary>
-    а&nbsp;также&nbsp;
+<div class:list={['flex flex-col gap-4', className]}>
+  <div class="flex flex-wrap items-center gap-3">
     {
-      defaultSecondaryLinks.map((link, index) => (
-        <>
-          {index > 0 && (index === defaultSecondaryLinks.length - 1 ? <>&nbsp;и&nbsp;</> : <>,&nbsp;</>)}
-          <a
-            data-download-secondary-link={link.key}
-            href={link.href}
-            class="font-medium text-brand underline-offset-4 transition-colors hover:underline"
-            {...(link.key === 'appStore' ? { target: '_blank', rel: 'noreferrer' } : {})}
-          >
-            {link.label}
-          </a>
-        </>
+      PLATFORMS.map((platform) => (
+        <a
+          data-download-platform={platform}
+          hidden={platform !== DEFAULT_PLATFORM}
+          href={downloadLinks[platform]}
+          aria-label={buildPrimaryButtonLabel(version, platform)}
+          class="inline-flex h-11 items-center gap-2.5 rounded-full bg-ink px-6 text-sm font-medium text-surface-page transition-opacity hover:opacity-90 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+        >
+          <PlatformIcon platform={platform} />
+          Скачать
+        </a>
       ))
     }
+    <a
+      href="https://github.com/uonick/octo-workspace"
+      target="_blank"
+      rel="noreferrer"
+      class="inline-flex h-11 items-center gap-2 rounded-full bg-surface-elevated px-5 text-sm font-medium text-ink shadow-btn transition-colors hover:bg-surface-hover active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+    >
+      <GithubIcon />
+      GitHub
+    </a>
   </div>
+
+  {
+    PLATFORMS.map((platform) => {
+      const secondaryLinks = getSecondaryDownloadLinks(platform, downloadLinks)
+      return (
+        <p
+          data-download-platform={platform}
+          hidden={platform !== DEFAULT_PLATFORM}
+          class="font-mono text-xs text-ink-3"
+        >
+          а&nbsp;также{' '}
+          {secondaryLinks.map((link, index) => (
+            <>
+              {index > 0 && (index === secondaryLinks.length - 1 ? ' и ' : ', ')}
+              <a
+                href={link.href}
+                class="text-ink-2 underline decoration-line-strong underline-offset-4 transition-colors hover:text-ink hover:decoration-ink-3"
+                {...(link.key === 'appStore' ? { target: '_blank', rel: 'noreferrer' } : {})}
+              >
+                {link.label}
+              </a>
+            </>
+          ))}
+        </p>
+      )
+    })
+  }
 </div>
 
 <script src="../scripts/init-download-buttons.ts"></script>

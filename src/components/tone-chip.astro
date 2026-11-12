@@ -1,0 +1,22 @@
+---
+import type { Tone } from '@/lib/tone'
+
+type Props = {
+  tone: Tone
+}
+
+const { tone } = Astro.props
+---
+
+<span
+  class:list={[
+    'inline-flex size-7 shrink-0 items-center justify-center rounded-lg font-mono text-xs font-medium',
+    tone === 'blue' && 'bg-tone-blue/15 text-tone-blue',
+    tone === 'green' && 'bg-tone-green/15 text-tone-green',
+    tone === 'orange' && 'bg-tone-orange/15 text-tone-orange',
+    tone === 'red' && 'bg-tone-red/15 text-tone-red',
+    tone === 'violet' && 'bg-tone-violet/15 text-tone-violet',
+  ]}
+>
+  <slot />
+</span>

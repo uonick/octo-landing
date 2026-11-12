@@ -17,6 +17,11 @@ const {
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.setAttribute('data-motion', '')
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -33,9 +38,9 @@ const {
     <meta name="rating" content="general" />
     <meta name="apple-mobile-web-app-title" content="OctoWorkspace" />
     <meta name="application-name" content="OctoWorkspace" />
-    <meta name="msapplication-TileColor" content="#5e6ad2" />
-    <meta name="theme-color" content="#faf8ff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0a0a12" media="(prefers-color-scheme: dark)" />
+    <meta name="msapplication-TileColor" content="#17181a" />
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#17181a" media="(prefers-color-scheme: dark)" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://octows.ru/" />
@@ -53,8 +58,10 @@ const {
 
     <link rel="sitemap" href="/sitemap.xml" />
   </head>
-  <body class="bg-canvas scrollbar antialiased">
+  <body class="bg-surface-page font-sans text-ink antialiased">
     <slot />
+
+    <script src="../scripts/init-reveal.ts"></script>
 
     <script type="text/javascript" is:inline>
       ;(function (m, e, t, r, i, k, a) {

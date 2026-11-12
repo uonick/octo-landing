@@ -1,18 +1,71 @@
 ---
+import { Image } from 'astro:assets'
+import appIcon from '@/assets/images/app-icon.png'
 import { getCurrentYear } from '@/lib/current-year'
 
 const currentYear = getCurrentYear()
+
+const linkGroups = [
+  {
+    title: 'Продукт',
+    links: [
+      { href: 'https://github.com/uonick/octo-workspace/releases', label: 'Релизы' },
+      { href: 'https://github.com/uonick/octo-workspace', label: 'Исходный код' },
+    ],
+  },
+  {
+    title: 'Помощь',
+    links: [{ href: 'https://github.com/uonick/octo-workspace/issues', label: 'Вопросы и баги' }],
+  },
+  {
+    title: 'Документы',
+    links: [{ href: '/privacy', label: 'Конфиденциальность' }],
+  },
+]
 ---
 
-<footer class="flex w-full items-center justify-center">
-  <div class="flex w-full max-w-7xl justify-center">
-    <div class="flex flex-col items-center gap-2 px-5 py-8 text-center text-xs text-ink-tertiary lg:px-0">
-      <a href="/privacy" class="transition-colors hover:text-brand">Политика конфиденциальности</a>
-      <div>
-        2022-{currentYear} ©<a href="https://uonick.com" class="transition-colors hover:text-brand"
-          >uonick</a
-        >
+<footer class="mt-24 border-t border-line">
+  <div class="mx-auto max-w-6xl px-5 py-12" data-reveal>
+    <div class="flex flex-col gap-10 sm:flex-row sm:justify-between">
+      <a href="/" class="flex items-center gap-2.5 self-start text-ink-2 transition-colors hover:text-ink">
+        <Image
+          src={appIcon}
+          alt=""
+          width={24}
+          height={24}
+          quality={90}
+          format="webp"
+          class="size-6 rounded-md opacity-80"
+        />
+        <span class="font-mono text-sm font-semibold tracking-tight">OctoWorkspace</span>
+      </a>
+
+      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-16">
+        {
+          linkGroups.map((group) => (
+            <div class="space-y-3">
+              <p class="text-sm font-medium text-ink-2">{group.title}</p>
+              <ul>
+                {group.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="inline-flex min-h-11 items-center text-sm text-ink-3 transition-colors hover:text-ink"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
+
+    <p class="mt-12 font-mono text-xs text-ink-3">
+      2022–{currentYear} ©{' '}
+      <a href="https://uonick.com" class="transition-colors hover:text-ink">uonick</a>
+    </p>
   </div>
 </footer>
